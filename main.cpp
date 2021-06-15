@@ -17,7 +17,7 @@ void print_help()
 
 std::string caesar_cipher(std::string *text, int shift)
 {
-    for (int i = 0; i < text->length(); i++)
+    for (size_t i = 0; i < text->length(); i++)
         text->at(i) += shift;
     return *text;
 }
@@ -46,11 +46,14 @@ int main(int ac, char **av)
                     filename = optarg;
                     fileMode = true;
                 }
+                break;
             case 'n':
                 if (optarg)
                     shift = atoi(optarg);
+                break;
             case 'h':
                 print_help();
+                break;
         }
     }
     if (optind != ac)
